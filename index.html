@@ -92,13 +92,19 @@ html.js .lid{display:block;position:absolute;left:0;top:0;transform-origin:left 
 .play-label{position:absolute !important;left:50%;bottom:18px;transform:translateX(-50%);white-space:nowrap;padding:8px 16px;border-radius:12px;background:#2E3A59;border:3px solid #FFFEF6;font-family:'Jua',sans-serif;font-size:18px;}
 
 /* 하루 장사 */
-.daystrip{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px;list-style:none;margin:0;padding:0;}
-.daystrip li{display:flex;flex-direction:column;gap:10px;min-width:0;}
-.daystrip img{display:block;width:100%;aspect-ratio:1/2;object-fit:cover;border:3px solid #2E3A59;border-radius:12px;background:#CFE6FF;}
+.strip-head{display:flex;align-items:center;justify-content:space-between;gap:12px;}
+.strip-nav{display:flex;gap:10px;flex:none;}
+.strip-btn{display:grid;place-items:center;width:44px;height:44px;padding:0;border:3px solid #2E3A59;border-radius:12px;background:#FFFEF6;color:#2E3A59;box-shadow:0 3px 0 #2E3A59;cursor:pointer;}
+.strip-btn:hover{transform:translateY(2px);box-shadow:0 1px 0 #2E3A59;}
+.strip-btn:disabled{opacity:.35;cursor:default;transform:none;box-shadow:0 3px 0 #2E3A59;}
+.daystrip{display:grid;grid-auto-flow:column;grid-auto-columns:clamp(220px,calc((100% - 48px) / 4),260px);gap:16px;list-style:none;margin:0;padding:0 0 12px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:#8F9196 transparent;}
+.daystrip li{display:flex;flex-direction:column;gap:10px;min-width:0;scroll-snap-align:start;}
+.daystrip img{display:block;width:100%;height:auto;border:3px solid #2E3A59;border-radius:12px;background:#CFE6FF;}
 .step-name{display:flex;align-items:center;gap:8px;font-family:'Jua',sans-serif;font-size:18px;}
 .step-no{flex:none;width:28px;height:28px;display:grid;place-items:center;border-radius:50%;background:#E59F3C;border:3px solid #2E3A59;font-size:14px;}
 .step-desc{font-size:14px;line-height:1.5;word-break:keep-all;}
-.strip-hint{display:none;}
+.daystrip .step-name{order:-2;}
+.daystrip .step-desc{order:-1;min-height:3em;}
 .prefer{border-top:3px dashed #B8BCC6;padding-top:18px;display:flex;flex-direction:column;gap:12px;}
 .prefer-row{display:flex;flex-wrap:wrap;gap:16px 24px;align-items:flex-start;}
 .achieve{flex:0 0 160px;width:160px;aspect-ratio:1/2;object-fit:cover;border:3px solid #2E3A59;border-radius:12px;margin:0 auto;}
@@ -155,9 +161,7 @@ html.js .reveal.in{opacity:1;transform:none;}
 .btn{min-height:44px;padding:8px 14px;font-size:16px;}
 .meta{grid-template-columns:repeat(2,minmax(0,1fr));}
 .two,.three{grid-template-columns:minmax(0,1fr);}
-.daystrip{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:44%;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;}
-.daystrip li{scroll-snap-align:start;}
-.strip-hint{display:block;}
+.daystrip{grid-auto-columns:72%;}
 .menu{grid-template-columns:repeat(2,minmax(0,1fr));}
 .tools{grid-template-columns:minmax(0,1fr);gap:2px;}
 .tools dd{margin-bottom:10px;}
@@ -286,8 +290,14 @@ html.js .reveal{opacity:1;transform:none;transition:none;}
 <section class="box reveal" id="system" aria-labelledby="system-title" style="display:flex;flex-direction:column;gap:20px">
 <h2 class="h2" id="system-title">핵심 시스템 · 붕어빵 장사</h2>
 <p class="body" style="margin:0">실제 붕어빵 장사처럼 재료를 사서 고르고, 틀에 반죽과 재료를 넣고, 틀을 돌려 구운 뒤 손님에게 팝니다. 하루가 끝나면 수익을 정산합니다.</p>
-<p class="strip-hint note" style="font-size:14px">옆으로 밀어서 하루 장사 흐름을 보세요</p>
-<ol class="daystrip">
+<div class="strip-head">
+<p class="note" style="font-size:14px">옆으로 넘겨서 하루 장사 흐름을 보세요 (6단계)</p>
+<div class="strip-nav">
+<button class="strip-btn" type="button" id="stripPrev" aria-label="이전 단계 보기" aria-controls="daystrip"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M11 3L5 9l6 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+<button class="strip-btn" type="button" id="stripNext" aria-label="다음 단계 보기" aria-controls="daystrip"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M7 3l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+</div>
+</div>
+<ol class="daystrip" id="daystrip" tabindex="0" aria-label="하루 장사 흐름 6단계">
 <li><img src="assets/shot-shop.webp" alt="재료 상점 화면: 슈크림 1kg 구매 창" loading="lazy" width="270" height="540"><span class="step-name"><span class="step-no">1</span>재료 사기</span><span class="step-desc">상점에서 재료를 kg 단위로 구매</span></li>
 <li><img src="assets/shot-pick.webp" alt="재료 선택 창: 팥과 슈크림이 선택됨" loading="lazy" width="270" height="540"><span class="step-name"><span class="step-no">2</span>재료 고르기</span><span class="step-desc">오늘 판매할 붕어빵의 재료를 선택</span></li>
 <li><img src="assets/shot-batter.webp" alt="열린 틀에 반죽을 붓고 팥을 넣는 장면" loading="lazy" width="270" height="540"><span class="step-name"><span class="step-no">3</span>반죽·재료 넣기</span><span class="step-desc">주전자로 반죽을 붓고 짤주머니로 재료를 넣음</span></li>
@@ -547,6 +557,23 @@ html.js .reveal{opacity:1;transform:none;transition:none;}
     $('player').replaceChildren(f);
     f.focus();
   });
+
+  // ---------- 하루 장사 흐름: 이전·다음 버튼 ----------
+  var strip = $('daystrip'), prevBtn = $('stripPrev'), nextBtn = $('stripNext');
+  function stripStep() {
+    var li = strip.querySelector('li');
+    return li ? li.getBoundingClientRect().width + 16 : 240;
+  }
+  function stripUpdate() {
+    var max = strip.scrollWidth - strip.clientWidth - 2;
+    prevBtn.disabled = strip.scrollLeft <= 2;
+    nextBtn.disabled = strip.scrollLeft >= max;
+  }
+  prevBtn.addEventListener('click', function () { strip.scrollBy({ left: -stripStep(), behavior: reduced ? 'auto' : 'smooth' }); });
+  nextBtn.addEventListener('click', function () { strip.scrollBy({ left: stripStep(), behavior: reduced ? 'auto' : 'smooth' }); });
+  strip.addEventListener('scroll', stripUpdate, { passive: true });
+  window.addEventListener('resize', stripUpdate, { passive: true });
+  stripUpdate();
 
   // ---------- 이메일 복사 ----------
   var toast = $('toast'), toastTimer;
