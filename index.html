@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>물고기빵 · 강소현 Unity 클라이언트 포트폴리오</title>
-<meta name="description" content="직접 붕어빵을 만들어서 파는 모바일 타이쿤 게임 '물고기빵' — 1인 개발, 기획부터 출시·운영까지. Unity, C#, Google Play 출시.">
+<meta name="description" content="직접 물고기빵을 만들어서 파는 모바일 타이쿤 게임 '물고기빵' — 1인 개발, 기획부터 출시·운영까지. Unity, C#, Google Play 출시.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="물고기빵 · 강소현 포트폴리오">
-<meta property="og:description" content="직접 붕어빵을 만들어서 파는 모바일 타이쿤 게임 · 1인 개발 · Unity, C# · Google Play">
+<meta property="og:description" content="직접 물고기빵을 만들어서 파는 모바일 타이쿤 게임 · 1인 개발 · Unity, C# · Google Play">
 <meta property="og:image" content="assets/og.png">
 <meta name="theme-color" content="#CFE6FF">
 <link rel="icon" type="image/png" href="assets/favicon.png">
@@ -36,7 +36,7 @@ img{max-width:100%;}
 .hdr-nav{display:flex;flex-wrap:wrap;gap:0 18px;font-size:15px;font-weight:700;}
 .hdr-nav a{color:#2E3A59;padding:8px 2px;}
 
-/* 붕어빵 틀 (JS 없을 때는 소개 상자만 보이는 일반 흐름) */
+/* 물고기빵 틀 (JS 없을 때는 소개 상자만 보이는 일반 흐름) */
 .gate{position:relative;z-index:1;padding:96px 16px 0;}
 .gate-cap,.lid{display:none;}
 .mold{position:relative;max-width:1080px;margin:0 auto;}
@@ -193,8 +193,8 @@ html.js .reveal{opacity:1;transform:none;transition:none;}
 <div id="intro"></div>
 <div class="sticky" id="sticky">
 <div class="gate-cap" id="cap">
-<p style="margin:0;font-size:17px"><b class="jua" style="font-size:22px">물고기빵</b> · 직접 붕어빵을 만들어서 파는 타이쿤 게임</p>
-<p class="jua" style="margin:0;font-size:19px">아래로 스크롤해서 붕어빵 틀을 열어주세요!</p>
+<p style="margin:0;font-size:17px"><b class="jua" style="font-size:22px">물고기빵</b> · 직접 물고기빵을 만들어서 파는 타이쿤 게임</p>
+<p class="jua" style="margin:0;font-size:19px">아래로 스크롤해서 물고기빵 틀을 열어주세요!</p>
 <button class="btn" type="button" id="openNow">틀 바로 열기</button>
 </div>
 <div class="mold" id="mold">
@@ -203,10 +203,10 @@ html.js .reveal{opacity:1;transform:none;transition:none;}
 <div class="box hero-box" id="herobox">
 <p style="margin:0;font-size:16px">1인 개발 · 기획부터 출시·운영까지 전 과정 담당</p>
 <div class="hero-head">
-<img class="hero-icon" src="assets/icon.png" alt="물고기빵 아이콘: 머리에 붕어빵을 얹은 회색 고양이" width="80" height="80">
+<img class="hero-icon" src="assets/icon.png" alt="물고기빵 아이콘: 머리에 물고기빵을 얹은 회색 고양이" width="80" height="80">
 <h1 class="hero-title jua">물고기빵</h1>
 </div>
-<p class="hero-intro">직접 붕어빵을 만들어서 파는 모바일 타이쿤 게임.<br>기획부터 클라우드 연동, 클라이언트 구현, 스토어 출시까지 혼자 완주했습니다.</p>
+<p class="hero-intro">직접 물고기빵을 만들어서 파는 모바일 타이쿤 게임.<br>기획부터 클라우드 연동, 클라이언트 구현, 스토어 출시까지 혼자 완주했습니다.</p>
 <div class="meta">
 <div><b>역할</b>기획·디자인·개발·출시·운영</div>
 <div><b>기간 · 팀</b>약 4개월 · 1인<br>2024.04 – 08</div>
@@ -250,7 +250,7 @@ html.js .reveal{opacity:1;transform:none;transition:none;}
 <ul class="list">
 <li><b>기획</b> — 재미 요소로 랭킹을 넣고, 수치 밸런스는 ChatGPT로 잡음</li>
 <li><b>디자인</b> — 손그림으로 구상해 Illustrator로 제작. 물고기를 좋아할 동물들로 손님 캐릭터 구성</li>
-<li><b>개발</b> — 틀 열기, 반죽·재료 넣기, 틀 돌리기까지 실제 붕어빵 장사 과정 구현. 클라우드 세이브, 랭킹 서버 구축과 전환</li>
+<li><b>개발</b> — 틀 열기, 반죽·재료 넣기, 틀 돌리기까지 실제 물고기빵 장사 과정 구현. 클라우드 세이브, 랭킹 서버 구축과 전환</li>
 <li><b>데이터 툴</b> — Google 스프레드시트를 TSV로 받아오는 다운로더로, 시트 수정을 바로 반영</li>
 <li><b>에디터 툴</b> — 설정이 끝난 TextMeshPro 프리팹을 계층 뷰 메뉴에서 바로 생성</li>
 <li><b>출시·운영</b> — Google Play 출시, 유저 피드백으로 밸런스 조정과 지표 관리. Google Play 정책에 맞춰 대상 API 수준을 올리고, 기존 에디터 버전의 보안 문제로 Unity 6000.3.18f1로 업그레이드</li>
@@ -282,38 +282,37 @@ html.js .reveal{opacity:1;transform:none;transition:none;}
 </section>
 
 <section class="box reveal" id="system" aria-labelledby="system-title" style="display:flex;flex-direction:column;gap:20px">
-<h2 class="h2" id="system-title">핵심 시스템 · 붕어빵 장사</h2>
-<p class="body" style="margin:0">실제 붕어빵 장사처럼 재료를 사서 고르고, 틀에 반죽과 재료를 넣고, 틀을 돌려 구운 뒤 손님에게 팝니다. 하루가 끝나면 수익을 정산합니다.</p>
-<p class="note" style="font-size:14px">하루 장사 흐름 6단계가 자동으로 넘어갑니다. 옆으로 넘겨서 직접 볼 수도 있어요.</p>
+<h2 class="h2" id="system-title">핵심 시스템 · 물고기빵 장사</h2>
+<p class="body" style="margin:0">실제 물고기빵 장사처럼 재료를 사서 고르고, 틀에 반죽과 재료를 넣고, 틀을 돌려 구운 뒤 손님에게 팝니다. 하루가 끝나면 수익을 정산합니다.</p>
 <ol class="daystrip" id="daystrip" tabindex="0" aria-label="하루 장사 흐름 6단계, 자동으로 넘어감">
 <li><img src="assets/shot-shop.webp" alt="재료 상점 화면: 슈크림 1kg 구매 창" loading="lazy" width="270" height="540"><span class="step-name"><span class="step-no">1</span>재료 사기</span><span class="step-desc">상점에서 재료를 kg 단위로 구매</span></li>
-<li><img src="assets/shot-pick.webp" alt="재료 선택 창: 팥과 슈크림이 선택됨" loading="lazy" width="270" height="540"><span class="step-name"><span class="step-no">2</span>재료 고르기</span><span class="step-desc">오늘 판매할 붕어빵의 재료를 선택</span></li>
+<li><img src="assets/shot-pick.webp" alt="재료 선택 창: 팥과 슈크림이 선택됨" loading="lazy" width="270" height="540"><span class="step-name"><span class="step-no">2</span>재료 고르기</span><span class="step-desc">오늘 판매할 물고기빵의 재료를 선택</span></li>
 <li><img src="assets/shot-batter.webp" alt="열린 틀에 반죽을 붓고 팥을 넣는 장면" loading="lazy" width="270" height="540"><span class="step-name"><span class="step-no">3</span>반죽·재료 넣기</span><span class="step-desc">주전자로 반죽을 붓고 짤주머니로 재료를 넣음</span></li>
-<li><img src="assets/shot-flip.webp" alt="닫힌 틀 위에 돌리기 화살표가 표시된 장면" loading="lazy" width="270" height="540"><span class="step-name"><span class="step-no">4</span>틀 돌리기</span><span class="step-desc">안내에 따라 틀을 돌려 굽기</span></li>
-<li><img src="assets/shot-sell.webp" alt="손님 셋이 말풍선으로 붕어빵 개수를 주문하는 장면" loading="lazy" width="270" height="540"><span class="step-name"><span class="step-no">5</span>손님에게 팔기</span><span class="step-desc">손님이 말풍선으로 원하는 개수만큼 판매</span></li>
+<li><img src="assets/shot-flip.webp" alt="닫힌 틀 위에 돌리기 화살표가 표시된 장면" loading="lazy" width="270" height="540"><span class="step-name"><span class="step-no">4</span>틀 돌리기</span><span class="step-desc">틀을 돌려 양면 굽기</span></li>
+<li><img src="assets/shot-sell.webp" alt="손님 셋이 말풍선으로 물고기빵 개수를 주문하는 장면" loading="lazy" width="270" height="540"><span class="step-name"><span class="step-no">5</span>손님에게 팔기</span><span class="step-desc">손님이 원하는 개수만큼 판매</span></li>
 <li><img src="assets/shot-profit.webp" alt="오늘의 수익 40이 표시된 정산 화면" loading="lazy" width="270" height="540"><span class="step-name"><span class="step-no">6</span>하루 정산</span><span class="step-desc">하루가 끝나면 오늘의 수익 확인</span></li>
 </ol>
 <div class="prefer">
-<h3 class="h3" style="margin:0">붕어빵 메뉴 10종 · 선호하는 손님</h3>
+<h3 class="h3" style="margin:0">물고기빵 메뉴 10종 · 선호하는 손님</h3>
 <div class="prefer-row">
 <div class="body" style="flex:1 1 320px;display:flex;flex-direction:column;gap:10px">
-<p style="margin:0">손님 15종마다 선호하는 붕어빵이 정해져 있고, 그 붕어빵의 재료를 갖춰야 손님이 찾아옵니다. 찾아온 손님으로 업적을 달성합니다.</p>
+<p style="margin:0">손님 15종마다 선호하는 물고기빵이 정해져 있고, 그 물고기빵의 재료를 갖춰야 손님이 찾아옵니다. 찾아온 손님으로 업적을 달성합니다.</p>
 <p class="note">오른쪽은 업적 화면입니다. 아직 만나지 못한 손님은 잠겨 있습니다.</p>
 </div>
 <img class="achieve" src="assets/shot-achieve.webp" alt="업적 화면: 만난 손님 2종은 그림이 보이고, 나머지 손님은 자물쇠로 잠겨 있음" loading="lazy" width="160" height="320">
 </div>
-<p class="note">붕어빵 그림 하나에 게임 데이터의 테두리 색과 속 색을 입혀 10종을 만들었습니다</p>
+<p class="note">물고기빵 그림 하나에 게임 데이터의 색 값(테두리 색·속 색)을 받아 10종의 바리에이션을 만들었습니다</p>
 <ul class="menu">
-<li><img src="assets/menu/fish01.png" alt="" width="64" height="33"><b>팥 붕어빵</b><span class="likes"><b>선호하는 손님</b>러시안 블루 고양이, 렉돌 고양이</span></li>
-<li><img src="assets/menu/fish02.png" alt="" width="64" height="33"><b>슈크림 붕어빵</b><span class="likes"><b>선호하는 손님</b>렉돌 고양이</span></li>
-<li><img src="assets/menu/fish03.png" alt="" width="64" height="33"><b>피자 붕어빵</b><span class="likes"><b>선호하는 손님</b>렉돌 고양이, 아키</span></li>
-<li><img src="assets/menu/fish04.png" alt="" width="64" height="33"><b>파인애플 붕어빵</b><span class="likes"><b>선호하는 손님</b>렉돌 고양이, 물개, 치즈 고양이, 치타, 토끼, 검은 고양이, 강아지</span></li>
-<li><img src="assets/menu/fish05.png" alt="" width="64" height="33"><b>고구마 붕어빵</b><span class="likes"><b>선호하는 손님</b>렉돌 고양이, 치타, 토끼, 검은 고양이, 강아지, 토루</span></li>
-<li><img src="assets/menu/fish06.png" alt="" width="64" height="33"><b>아이스크림 붕어빵</b><span class="likes"><b>선호하는 손님</b>렉돌 고양이, 북극곰, 터키시 앙고라, 코코</span></li>
-<li><img src="assets/menu/fish07.png" alt="" width="64" height="33"><b>초코 붕어빵</b><span class="likes"><b>선호하는 손님</b>렉돌 고양이, 수달, 코코</span></li>
-<li><img src="assets/menu/fish08.png" alt="" width="64" height="33"><b>치즈 붕어빵</b><span class="likes"><b>선호하는 손님</b>렉돌 고양이, 물개, 치즈 고양이</span></li>
+<li><img src="assets/menu/fish01.png" alt="" width="64" height="33"><b>팥 물고기빵</b><span class="likes"><b>선호하는 손님</b>러시안 블루 고양이, 렉돌 고양이</span></li>
+<li><img src="assets/menu/fish02.png" alt="" width="64" height="33"><b>슈크림 물고기빵</b><span class="likes"><b>선호하는 손님</b>렉돌 고양이</span></li>
+<li><img src="assets/menu/fish03.png" alt="" width="64" height="33"><b>피자 물고기빵</b><span class="likes"><b>선호하는 손님</b>렉돌 고양이, 아키</span></li>
+<li><img src="assets/menu/fish04.png" alt="" width="64" height="33"><b>파인애플 물고기빵</b><span class="likes"><b>선호하는 손님</b>렉돌 고양이, 물개, 치즈 고양이, 치타, 토끼, 검은 고양이, 강아지</span></li>
+<li><img src="assets/menu/fish05.png" alt="" width="64" height="33"><b>고구마 물고기빵</b><span class="likes"><b>선호하는 손님</b>렉돌 고양이, 치타, 토끼, 검은 고양이, 강아지, 토루</span></li>
+<li><img src="assets/menu/fish06.png" alt="" width="64" height="33"><b>아이스크림 물고기빵</b><span class="likes"><b>선호하는 손님</b>렉돌 고양이, 북극곰, 터키시 앙고라, 코코</span></li>
+<li><img src="assets/menu/fish07.png" alt="" width="64" height="33"><b>초코 물고기빵</b><span class="likes"><b>선호하는 손님</b>렉돌 고양이, 수달, 코코</span></li>
+<li><img src="assets/menu/fish08.png" alt="" width="64" height="33"><b>치즈 물고기빵</b><span class="likes"><b>선호하는 손님</b>렉돌 고양이, 물개, 치즈 고양이</span></li>
 <li><img src="assets/menu/fish09.png" alt="" width="64" height="33"><b>붕어</b><span class="likes"><b>선호하는 손님</b>호랑이</span></li>
-<li><img src="assets/menu/fish10.png" alt="" width="64" height="33"><b>두바이 붕어빵</b><span class="likes"><b>선호하는 손님</b>아키, 치타, 검은 고양이</span></li>
+<li><img src="assets/menu/fish10.png" alt="" width="64" height="33"><b>두바이 물고기빵</b><span class="likes"><b>선호하는 손님</b>아키, 치타, 검은 고양이</span></li>
 </ul>
 </div>
 </section>
@@ -325,9 +324,9 @@ html.js .reveal{opacity:1;transform:none;transition:none;}
 </div>
 
 <details>
-<summary><span class="case-no">01</span><span class="case-title"><b>서버 비용 · 수익 없는 게임의 랭킹 서버</b><span>GPGS 리더보드로 전환해 월 약 3만 원 → 0원</span></span><span class="plus" aria-hidden="true">+</span></summary>
+<summary><span class="case-no">01</span><span class="case-title"><b>서버 비용 · 수익 없는 게임의 랭킹 서버</b><span>GPGS 리더보드로 전환해 월 약 3만 원 → 0원</span></span><span class="plus" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M7 1.5v11M1.5 7h11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg></span></summary>
 <div class="steps">
-<b>문제</b><span>AWS를 써보고 싶어 Lambda와 DynamoDB로 랭킹을 직접 구축. 보안을 위해 여러 플랜을 쓰면서, 게임 수익 없이 월 약 3만 원이 나감</span>
+<b>문제</b><span>AWS 경험을 위해 Lambda와 DynamoDB로 랭킹을 직접 구축. 보안을 위해 여러 플랜을 쓰면서, 게임 수익 없이 월 약 3만 원이 나감</span>
 <b>시도</b><span>다른 게임이 GPGS 랭킹을 쓰는 것을 보고 전환에 도전</span>
 <b>결과</b><span>GPGS 리더보드로 전환해 서버 비용 0원</span>
 <b>배운 점</b><span>AWS 서버리스 구성을 직접 해본 경험은 얻었지만, 써보고 싶은 기술보다 프로젝트 규모와 운영 비용에 맞는 선택이 먼저라는 것을 배움</span>
@@ -335,19 +334,19 @@ html.js .reveal{opacity:1;transform:none;transition:none;}
 </details>
 
 <details>
-<summary><span class="case-no">02</span><span class="case-title"><b>GPGS 로그인 · 시작부터 뜨는 로그인 창</b><span>유저가 원할 때 세이브·로드하는 방식으로 변경</span></span><span class="plus" aria-hidden="true">+</span></summary>
+<summary><span class="case-no">02</span><span class="case-title"><b>클라우드 세이브 · 너무 잦은 자동 저장 통신</b><span>유저가 원할 때 세이브·로드하는 방식으로 변경</span></span><span class="plus" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M7 1.5v11M1.5 7h11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg></span></summary>
 <div class="steps">
-<b>문제</b><span>게임 시작부터 로그인 창이 뜨면 불쾌감을 줄 수 있어, 로그인 시점을 직접 정하고 싶었음</span>
-<b>시도</b><span>GPGS 버전마다 로그인 구현이 달라 확인해 보니, 현재 v2 SDK는 게임을 열면 자동으로 로그인하고 이 시점을 바꾸는 방법은 제공하지 않음</span>
-<b>결과</b><span>다른 게임을 참고해, 자동 세이브·로드 대신 유저가 원할 때 세이브·로드하는 방식으로 변경</span>
-<b>배운 점</b><span>구현이 막힐 때 다른 게임이 같은 문제를 어떻게 풀었는지 참고하면, 원래 목표(유저가 불쾌하지 않게)를 지키는 다른 방법을 찾을 수 있다는 것을 배움</span>
+<b>문제</b><span>클라우드에 자동으로 세이브·로드하면 통신이 너무 잦아져 부담이 됨</span>
+<b>시도</b><span>다른 게임은 세이브·로드를 어떻게 하는지 참고</span>
+<b>결과</b><span>자동 세이브·로드 대신 유저가 원할 때 세이브·로드하는 방식으로 변경</span>
+<b>배운 점</b><span>비슷한 기능을 서비스하는 게임을 레퍼런스로 더 많이 찾아봐야 한다는 것을 배움</span>
 </div>
 </details>
 
 <details>
-<summary><span class="case-no">03</span><span class="case-title"><b>광고 · 첫 출시 중 AdMob 계정 차단</b><span>Unity Ads로 전환해 광고 적용</span></span><span class="plus" aria-hidden="true">+</span></summary>
+<summary><span class="case-no">03</span><span class="case-title"><b>광고 · 첫 출시 중 AdMob 계정 차단</b><span>Unity Ads로 전환해 광고 적용</span></span><span class="plus" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M7 1.5v11M1.5 7h11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg></span></summary>
 <div class="steps">
-<b>문제</b><span>출시 전 테스터를 모으기 어려웠고, AdMob 계정이 이유를 알 수 없이 차단됨</span>
+<b>문제</b><span>AdMob 계정이 이유를 알 수 없이 차단됨</span>
 <b>원인 추정</b><span>전 회사에 남아 있던 계정과 명의가 겹친 것으로 짐작</span>
 <b>결과</b><span>Unity Ads로 전환해 광고 적용</span>
 <b>배운 점</b><span>광고를 싱글톤으로 직접 참조해, 광고 서비스를 바꿀 때 참조하던 클래스를 모두 고쳐야 했음. 이 경험으로 다음 프로젝트(아기 공룡 키우기)에서는 DI를 도입하고 광고 서비스를 인터페이스로 분리해, 다른 광고 서비스로 바꿀 때 구현 클래스만 교체하도록 설계</span>
@@ -355,7 +354,7 @@ html.js .reveal{opacity:1;transform:none;transition:none;}
 </details>
 
 <details>
-<summary><span class="case-no">04</span><span class="case-title"><b>무한 스크롤 · 계속 늘어나는 랭킹 목록</b><span>셀 프리팹 4개로 랭킹 전체 표시</span></span><span class="plus" aria-hidden="true">+</span></summary>
+<summary><span class="case-no">04</span><span class="case-title"><b>무한 스크롤 · 계속 늘어나는 랭킹 목록</b><span>셀 프리팹 4개로 랭킹 전체 표시</span></span><span class="plus" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M7 1.5v11M1.5 7h11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg></span></summary>
 <div class="steps">
 <b>문제</b><span>랭킹은 항목 수를 가늠할 수 없어, 모두 생성하면 GC와 프레임 드랍이 생길 수 있음</span>
 <b>해결</b><span>셀 재활용 방식을 미리 적용. 제네릭 TableViewController를 만들고 랭킹 화면이 상속</span>
@@ -416,7 +415,7 @@ html.js .reveal{opacity:1;transform:none;transition:none;}
   var ease = function (t) { return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; };
   var lerp = function (a, b, t) { return a + (b - a) * t; };
 
-  // ---------- 붕어빵 틀 ----------
+  // ---------- 물고기빵 틀 ----------
   var gate = $('top'), sticky = $('sticky'), cap = $('cap'), mold = $('mold'), moldBg = $('moldBg'),
       heroWrap = $('heroWrap'), herobox = $('herobox'), lid = $('lid'), intro = $('intro'), hdr = $('hdr');
   var vw = 0, vh = 0, hh = 0, hb = 0, range = 1, ticking = false;
