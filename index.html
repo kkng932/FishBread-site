@@ -18,7 +18,6 @@
 <script>document.documentElement.classList.add('js');</script>
 <style>
 *{box-sizing:border-box;}
-html{scroll-behavior:smooth;}
 body{margin:0;background:#CFE6FF;color:#2E3A59;font-family:'Gowun Dodum',system-ui,sans-serif;}
 a{color:#824B00;}a:hover{color:#5A3400;}
 img{max-width:100%;}
@@ -233,12 +232,12 @@ html.js .reveal{opacity:1;transform:none;transition:none;}
 <div class="player" id="player">
 <button type="button" id="playBtn" aria-label="플레이 영상 재생하기 (1분 17초, 한국어 자막)">
 <svg width="72" height="72" viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="32" fill="#E59F3C" stroke="#FFFEF6" stroke-width="4"/><path d="M29 23 L51 36 L29 49 Z" fill="#2E3A59"/></svg>
-<span class="play-label">영상 재생하기 · 1:17</span>
+<span class="play-label">영상 재생하기</span>
 </button>
 </div>
 <div class="body" style="flex:1 1 320px;display:flex;flex-direction:column;gap:12px">
 <h2 class="h2" id="video-title">플레이 영상</h2>
-<p style="margin:0">물고기빵의 주요 시스템을 소개하는 세로 영상입니다.</p>
+<p style="margin:0">물고기빵의 주요 시스템을 소개하는 영상입니다.</p>
 <p class="note">YouTube Shorts · 1:17 · 한국어 자막</p>
 </div>
 </section>
@@ -504,11 +503,34 @@ html.js .reveal{opacity:1;transform:none;transition:none;}
     }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
     reveals.forEach(function (el) { io.observe(el); });
   }
-  // 바로가기로 이동할 때는 즉시 보이게
-  window.addEventListener('hashchange', function () {
-    var el = document.querySelector(location.hash);
-    if (el && el.classList.contains('reveal')) el.classList.add('in');
+  // ---------- 페이지 안 바로가기: 고정 머리 막대에 가리지 않는 위치로 ----------
+  function goTo(hash, smooth) {
+    var y;
+    if (hash === '#top') y = 0;
+    else if (hash === '#intro') y = range; // 틀이 다 열린 지점
+    else {
+      var el = document.querySelector(hash);
+      if (!el) return false;
+      if (el.classList.contains('reveal')) el.classList.add('in'); // 등장 효과로 위치가 밀리지 않게 먼저 보이기
+      y = el.getBoundingClientRect().top + window.scrollY - (hdr.offsetHeight + 8 + 16);
+    }
+    window.scrollTo({ top: Math.max(0, y), behavior: smooth && !reduced ? 'smooth' : 'auto' });
+    return true;
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="#"]');
+    if (!a) return;
+    var hash = a.getAttribute('href');
+    if (hash.length < 2) return;
+    if (goTo(hash, true)) {
+      e.preventDefault();
+      history.replaceState(null, '', hash === '#top' ? location.pathname + location.search : hash);
+    }
   });
+  // 주소에 #이 붙은 채로 열었을 때
+  if (location.hash.length > 1) {
+    window.addEventListener('load', function () { setTimeout(function () { goTo(location.hash, false); }, 50); });
+  }
 
   // ---------- 연기 (SteamManager 이식) ----------
   // 1~5초 무작위 간격, 화면 양 끝 띠의 무작위 위치에서 1.5초 동안 떠오르며 알파 0.5 → 0
