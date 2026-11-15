@@ -1,0 +1,339 @@
+/* ==========================================================================
+   Layout — 배경, 헤더, 물고기빵 틀(첫 화면), 본문 틀
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Background
+   -------------------------------------------------------------------------- */
+
+.bg-pattern {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-pattern);
+  background: url('../assets/images/bg-pattern.png') repeat;
+  background-size: 360px 300px;
+  opacity: 0.75;
+  pointer-events: none;
+}
+
+.steam-layer {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-steam);
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.steam {
+  position: absolute;
+  opacity: 0;
+  will-change: transform, opacity;
+  animation: steam-rise 1.5s linear forwards;
+}
+
+@keyframes steam-rise {
+  from {
+    opacity: 0.5;
+    transform: translate(-50%, -50%);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, calc(-50% + var(--rise)));
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Header
+   -------------------------------------------------------------------------- */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: var(--z-header);
+  padding: 8px var(--page-gutter) 0;
+}
+
+.site-header__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px 24px;
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 8px 20px;
+  background: var(--color-paper);
+  border: var(--border-thick);
+  border-radius: 16px;
+}
+
+.site-header__brand {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 6px 0;
+  color: var(--color-ink);
+  text-decoration: none;
+}
+
+.site-header__name {
+  font-family: var(--font-display);
+  font-size: 22px;
+}
+
+.site-header__role {
+  font-size: 15px;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 18px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.site-nav a {
+  padding: 8px 2px;
+  color: var(--color-ink);
+}
+
+@media (max-width: 860px) {
+  .site-header {
+    padding: 6px 10px 0;
+  }
+
+  .site-header__inner {
+    gap: 0 16px;
+    padding: 4px 14px;
+    border-width: 3px;
+    border-radius: 14px;
+  }
+
+  .site-header__name {
+    font-size: 19px;
+  }
+
+  .site-header__role {
+    font-size: 13px;
+  }
+
+  .site-nav {
+    flex-wrap: nowrap;
+    width: 100%;
+    overflow-x: auto;
+    gap: 0 16px;
+    font-size: 14px;
+    scrollbar-width: none;
+  }
+
+  .site-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .site-nav a {
+    padding: 6px 2px;
+    white-space: nowrap;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Gate — 스크롤하면 열리는 물고기빵 틀
+   JS가 없으면 소개 상자만 일반 흐름으로 보인다.
+   -------------------------------------------------------------------------- */
+
+.gate {
+  position: relative;
+  z-index: var(--z-content);
+  padding: 96px var(--page-gutter) 0;
+}
+
+.gate__anchor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.gate__prompt,
+.mold__lid {
+  display: none;
+}
+
+.mold {
+  position: relative;
+  max-width: var(--content-width);
+  margin: 0 auto;
+}
+
+.mold__bg {
+  position: absolute;
+  inset: 0;
+  background: var(--color-iron);
+  border: var(--border-thick);
+  border-bottom: none;
+  border-radius: 10px 10px 0 0;
+}
+
+.mold__content {
+  position: relative;
+  padding: 24px;
+}
+
+.mold__lid img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.mold__lid img + img {
+  transform: rotateY(180deg);
+}
+
+.js .gate {
+  padding: 0;
+}
+
+.js .gate__sticky {
+  position: sticky;
+  top: 0;
+}
+
+.js .gate__prompt {
+  position: absolute;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: min(440px, calc(100% - 32px));
+  padding: 14px 18px;
+  background: var(--color-paper);
+  border: var(--border-thick);
+  border-radius: 16px;
+  text-align: center;
+  word-break: keep-all;
+  transform: translateX(-50%);
+}
+
+.gate__prompt p {
+  margin: 0;
+}
+
+.gate__prompt-title {
+  font-size: 17px;
+}
+
+.gate__prompt-title strong {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.gate__prompt-cta {
+  font-family: var(--font-display);
+  font-size: 19px;
+}
+
+.js .mold {
+  position: absolute;
+  max-width: none;
+  margin: 0;
+  perspective: 1800px;
+}
+
+.js .mold__content {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.js .mold__lid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  transform-style: preserve-3d;
+  transform-origin: left center;
+  pointer-events: none;
+}
+
+.js .hero {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform-origin: center bottom;
+}
+
+@media (max-width: 860px) {
+  .gate {
+    padding-top: 120px;
+  }
+
+  .mold__content {
+    padding: 16px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Page — 틀이 열린 뒤 이어지는 본문
+   -------------------------------------------------------------------------- */
+
+.page {
+  position: relative;
+  z-index: var(--z-content);
+  max-width: calc(var(--content-width) + var(--page-gutter) * 2);
+  margin: 0 auto;
+  padding: 0 var(--page-gutter) 64px;
+}
+
+.page__mold {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 0 20px 24px;
+  background: var(--color-iron);
+  border: var(--border-thick);
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+}
+
+@media (max-width: 860px) {
+  .page {
+    padding-bottom: 48px;
+  }
+
+  .page__mold {
+    gap: 16px;
+    padding: 0 12px 16px;
+  }
+}
+
+/* 스크롤해서 화면에 들어올 때 올라오는 효과 */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .steam-layer {
+    display: none;
+  }
+
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
